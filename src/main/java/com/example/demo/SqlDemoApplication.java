@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.util.Map;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
@@ -10,12 +12,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @SpringBootApplication
 public class SqlDemoApplication {
 
-	@RequestMapping("/demo")
-    @ResponseBody
-    String home() {
-      return "Hello World!";
-    }
-	
+	@RequestMapping("/hello")
+	String hello(Map<String, Object> model) {
+	  model.put("message", "Welcome to my app!");
+	  return "hello";
+	}
 	public static void main(String[] args) {
 		SpringApplication.run(SqlDemoApplication.class, args);
 	}
